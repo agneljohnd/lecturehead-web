@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SITE_URL, absoluteUrl } from "./urls";
+import { SITE_URL, absoluteUrl, INDEXING_ENABLED } from "./urls";
 
 const SITE_NAME = "LectureHead";
 const DEFAULT_TITLE = "Online Course Platform for Creators — LectureHead";
@@ -48,7 +48,9 @@ export function buildSEO({
       canonical: canonicalUrl,
     },
 
-    robots: noindex
+    // Force noindex everywhere unless explicitly enabled on the real
+    // production domain — keeps preview/staging deploys out of search.
+    robots: noindex || !INDEXING_ENABLED
       ? { index: false, follow: false }
       : { index: true, follow: true, googleBot: { index: true, follow: true } },
 

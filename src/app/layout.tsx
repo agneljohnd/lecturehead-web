@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Script from "next/script";
+import { INDEXING_ENABLED } from "@/lib/urls";
 import "./globals.css";
 
 const inter = Inter({
@@ -19,6 +20,8 @@ export const metadata: Metadata = {
   description:
     "The all-in-one online course platform for creators, coaches & educators. Sell courses, run live cohorts & community, and keep 100% of your revenue — 0% commission.",
   metadataBase: new URL("https://lecturehead.com"),
+  // Site-wide fallback: noindex everything unless explicitly enabled on prod.
+  ...(INDEXING_ENABLED ? {} : { robots: { index: false, follow: false } }),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
