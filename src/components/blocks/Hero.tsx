@@ -83,7 +83,7 @@ export function Hero({ eyebrow, headingLines, subtext, primaryCTA, secondaryCTA 
             </p>
           )}
 
-          <div className="md:mt-10 mt-6 flex flex-col md:flex-row  items-center justify-center md:justify-start gap-6">
+          <div className="md:mt-10 mt-6 flex flex-row  items-center justify-center md:justify-start gap-3 md:gap-6">
             {primaryCTA && (
               <Button id="hero-book-btn" onClick={openDemo} variant="dark" size="lg" arrow>
                 {primaryCTA.label}
@@ -92,7 +92,7 @@ export function Hero({ eyebrow, headingLines, subtext, primaryCTA, secondaryCTA 
             {secondaryCTA && (
               <button
                 onClick={openDemo}
-                className="inline-flex w items-center gap-2.5 text-sm font-medium text-slate-600 hover:text-black transition-colors"
+                className="inline-flex border rounded-full px-2  py-3 items-center gap-2.5 text-sm font-medium text-slate-600 hover:text-black transition-colors"
               >
                 <span className="flex h-5 w-5 items-center justify-center rounded-full bg-slate-100">
                   <svg width="8" height="10" viewBox="0 0 8 10" fill="currentColor">
@@ -161,7 +161,7 @@ export function Hero({ eyebrow, headingLines, subtext, primaryCTA, secondaryCTA 
             <span className="w-px h-8 bg-slate-200 hidden sm:block" />
 
             {/* Rating */}
-            <span className="flex flex-col">
+            <span className="flex flex-col md:item start items-center justify-center">
               <span className="text-base font-bold text-slate-900 leading-tight">4.8/5</span>
               <span className="inline-flex gap-px mt-0.5">
                 {[...Array(5)].map((_, i) => (

@@ -79,17 +79,17 @@ export function BuiltFor() {
 
         {/* Stats strip */}
     <div className="flex justify-center lg:justify-start w-full mb-10">
-  <div className="flex flex-col items-start gap-4 sm:flex-row lg:mb-10 sm:flex-wrap sm:justify-start sm:gap-10">
+  <div className="flex  items-start gap-4 flex-row lg:mb-10 flex-wrap justify-center sm:gap-10">
     {[
-      { number: "₹0", label: "Setup Fee" },
+      { number: "0 ₹", label: "Setup Fee" },
       { number: "0%", label: "Commission" },
-      { number: "0", label: "Effort Required" },
+      { number: "0%", label: "Effort Required" },
     ].map((stat, i) => (
       <div key={i} className="flex items-baseline gap-2">
         <span className=" text-2xl md:text-4xl font-bold text-slate-900 tracking-tight">
           {stat.number}
         </span>
-        <span className="md:text-sm text-xs font-medium text-slate-400 uppercase tracking-widest">
+        <span className=" text-base md:text-sm font-medium text-slate-400 uppercase tracking-widest">
           {stat.label}
         </span>
       </div>
