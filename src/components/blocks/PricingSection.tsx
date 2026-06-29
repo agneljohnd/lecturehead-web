@@ -62,34 +62,32 @@ export function PricingSection() {
   const [annual, setAnnual] = useState(true);
 
   return (
-    <section id="pricing" className="bg-white py-20 lg:py-28">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+    <section id="pricing" className="bg-white py-10 lg:py-28">
+      <div className="max-w-6xl mx-auto px-4 lg:px-8">
 
         {/* Top row: heading + rating */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-10">
           {/* Mixed-typography heading */}
-          <h2 style={{ margin: 0, lineHeight: 1.08 }}>
-            <span style={{
-              display: "block",
-              fontSize: "clamp(32px, 4.5vw, 58px)",
-              fontWeight: 800,
-              letterSpacing: "-0.03em",
-              color: "#0a0a0a",
-              fontFamily: "inherit",
-            }}>
-              We&rsquo;ve got a plan
-            </span>
-            <span style={{
-              display: "block",
-              fontSize: "clamp(32px, 4.5vw, 58px)",
-              fontWeight: 800,
-              letterSpacing: "-0.03em",
-              color: "#0a0a0a",
-              fontFamily: "inherit",
-            }}>
-              that&rsquo;s perfect for you
-            </span>
-          </h2>
+         <h2 style={{ margin: 0, lineHeight: 1.08 }}>
+  <span
+    style={{
+      display: "block",
+      
+      fontWeight: 800,
+      letterSpacing: "-0.03em",
+      color: "#0a0a0a",
+    }}
+    className="text-[26px]  lg:text-[40px]"
+  >
+    We&rsquo;ve got a plan
+  </span>
+
+  <span
+    className="block text-[26px]  lg:text-[40px] font-extrabold tracking-[-0.03em] text-[#0a0a0a]"
+  >
+    that&rsquo;s perfect for you
+  </span>
+</h2>
 
         </div>
 
@@ -139,7 +137,7 @@ export function PricingSection() {
 
               {/* Price */}
               <div className="flex items-end gap-1.5 mb-1">
-                <span className="text-4xl font-extrabold text-slate-900 tracking-tight leading-none">
+                <span className="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-none">
                   {fmt(monthlyPrice(plan.base, annual))}
                 </span>
               </div>
@@ -179,7 +177,7 @@ export function PricingSection() {
             </div>
 
             <div className="flex items-end gap-1.5 mb-1">
-              <span className="text-4xl font-extrabold text-slate-900 tracking-tight leading-none">Custom</span>
+              <span className="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-none">Custom</span>
             </div>
             <p className="text-xs text-slate-400 mb-3">pricing</p>
 

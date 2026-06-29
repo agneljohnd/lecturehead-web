@@ -58,12 +58,12 @@ const rows = [
 
 export function BuiltFor() {
   return (
-    <section className="bg-white py-20 lg:py-28">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+    <section className="bg-white py-10 lg:py-28">
+      <div className="max-w-6xl mx-auto px-4 lg:px-8">
 
         {/* Top row */}
-        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-10">
-          <h2 className="text-3xl lg:text-[40px] font-medium text-black tracking-[-0.03em] leading-[1.15] max-w-xl">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-10 md:mb-16">
+          <h2 className="text-2xl lg:text-[40px] font-medium text-black tracking-[-0.03em] leading-[1.15] max-w-xl">
             Reason why educators switch to LectureHead
           </h2>
           <button
@@ -78,29 +78,35 @@ export function BuiltFor() {
         </div>
 
         {/* Stats strip */}
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-4 sm:gap-10 mb-10">
-          {[
-            { number: "₹0", label: "Setup Fee" },
-            { number: "0%", label: "Commission" },
-            { number: "0", label: "Effort Required" },
-          ].map((stat, i) => (
-            <div key={i} className="flex items-baseline gap-2">
-              <span className="text-4xl font-bold text-slate-900 tracking-tight">{stat.number}</span>
-              <span className="text-sm font-medium text-slate-400 uppercase tracking-widest">{stat.label}</span>
-            </div>
-          ))}
-        </div>
+    <div className="flex justify-center lg:justify-start w-full mb-10">
+  <div className="flex flex-col items-start gap-4 sm:flex-row lg:mb-10 sm:flex-wrap sm:justify-start sm:gap-10">
+    {[
+      { number: "₹0", label: "Setup Fee" },
+      { number: "0%", label: "Commission" },
+      { number: "0", label: "Effort Required" },
+    ].map((stat, i) => (
+      <div key={i} className="flex items-baseline gap-2">
+        <span className=" text-2xl md:text-4xl font-bold text-slate-900 tracking-tight">
+          {stat.number}
+        </span>
+        <span className="md:text-sm text-xs font-medium text-slate-400 uppercase tracking-widest">
+          {stat.label}
+        </span>
+      </div>
+    ))}
+  </div>
+</div>
 
         {/* Feature rows card */}
         <div className="rounded-2xl overflow-hidden border border-brand-100">
           {rows.map((row, i) => (
             <div
               key={i}
-              className={`flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 px-5 sm:px-8 py-6 ${i < rows.length - 1 ? "border-b border-white/40" : ""}`}
+              className={`flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 px-4 sm:px-8 py-6 ${i < rows.length - 1 ? "border-b border-white/40" : ""}`}
               style={{ backgroundColor: row.bg }}
             >
               {/* Icon + title row */}
-              <div className="flex items-center gap-4 sm:gap-6 sm:contents">
+              <div className="flex items-center flex-col md:flex-row gap-4 sm:gap-6 sm:contents">
                 {/* Icon box */}
                 <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-sm">
                   {row.icon}
@@ -108,14 +114,14 @@ export function BuiltFor() {
 
                 {/* Title */}
                 <div className="w-full sm:w-[220px] lg:w-[260px] sm:flex-shrink-0">
-                  <p className="text-[15px] font-semibold text-slate-900 leading-snug">
+                  <p className=" text-sm md:text-[15px] text-center font-semibold text-slate-900 leading-snug">
                     {row.title}
                   </p>
                 </div>
               </div>
 
               {/* Description — now visible on mobile too */}
-              <p className="flex-1 text-[15px] text-slate-500 leading-relaxed pl-16 sm:pl-0">
+              <p className="flex-1 text-sm md:text-[15px] text-center text-slate-500 leading-relaxed md:pl-16 sm:pl-0">
                 {row.description}
               </p>
             </div>
