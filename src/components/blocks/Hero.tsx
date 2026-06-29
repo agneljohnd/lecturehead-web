@@ -154,7 +154,7 @@ export function Hero({ eyebrow, headingLines, subtext, primaryCTA, secondaryCTA 
             {/* Count */}
             <span className="flex flex-col">
               <span className="text-base font-bold text-slate-900 leading-tight">5,467</span>
-              <span className="text-[0.78rem] text-slate-400 leading-tight">trusted by top creators</span>
+              <span className="text-[1rem] text-slate-400 leading-tight">trusted by top creators</span>
             </span>
 
             {/* Divider */}

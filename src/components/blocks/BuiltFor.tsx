@@ -81,9 +81,9 @@ export function BuiltFor() {
     <div className="flex justify-center lg:justify-start w-full mb-10">
   <div className="flex  items-start gap-4 flex-row lg:mb-10 flex-wrap justify-center sm:gap-10">
     {[
-      { number: "0 ₹", label: "Setup Fee" },
-      { number: "0%", label: "Commission" },
-      { number: "0%", label: "Effort Required" },
+      { number: "0", label: "Setup Fee" },
+      { number: "0", label: "Commission" },
+      { number: "0", label: "Effort Required" },
     ].map((stat, i) => (
       <div key={i} className="flex items-baseline gap-2">
         <span className=" text-2xl md:text-4xl font-bold text-slate-900 tracking-tight">
@@ -99,34 +99,36 @@ export function BuiltFor() {
 
         {/* Feature rows card */}
         <div className="rounded-2xl overflow-hidden border border-brand-100">
-          {rows.map((row, i) => (
-            <div
-              key={i}
-              className={`flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 px-4 sm:px-8 py-6 ${i < rows.length - 1 ? "border-b border-white/40" : ""}`}
-              style={{ backgroundColor: row.bg }}
-            >
-              {/* Icon + title row */}
-              <div className="flex items-center flex-col md:flex-row gap-4 sm:gap-6 sm:contents">
-                {/* Icon box */}
-                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-sm">
-                  {row.icon}
-                </div>
-
-                {/* Title */}
-                <div className="w-full sm:w-[220px] lg:w-[260px] sm:flex-shrink-0">
-                  <p className=" text-sm md:text-[15px] text-center font-semibold text-slate-900 leading-snug">
-                    {row.title}
-                  </p>
-                </div>
-              </div>
-
-              {/* Description — now visible on mobile too */}
-              <p className="flex-1 text-sm md:text-[15px] text-center text-slate-500 leading-relaxed md:pl-16 sm:pl-0">
-                {row.description}
-              </p>
-            </div>
-          ))}
+  {rows.map((row, i) => (
+    <div
+      key={i}
+      className={`flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 px-4 sm:px-8 py-6 ${
+        i < rows.length - 1 ? "border-b border-white/40" : ""
+      }`}
+      style={{ backgroundColor: row.bg }}
+    >
+      {/* Icon + Title */}
+      <div className="flex flex-col md:flex-row items-start gap-4 sm:gap-6 sm:contents">
+        {/* Icon */}
+        <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-sm self-start">
+          {row.icon}
         </div>
+
+        {/* Title */}
+        <div className="w-full sm:w-[220px] lg:w-[260px] sm:flex-shrink-0">
+          <p className="text-sm md:text-[15px] font-semibold text-slate-900 leading-snug text-left w-full">
+            {row.title}
+          </p>
+        </div>
+      </div>
+
+      {/* Description */}
+      <p className="flex-1 text-sm md:text-[15px] text-slate-500 leading-relaxed text-left md:pl-16 sm:pl-0 w-full">
+        {row.description}
+      </p>
+    </div>
+  ))}
+</div>
 
       </div>
     </section>
