@@ -33,9 +33,9 @@ function ArrowIcon() {
 
 export function InternalLinks({ links }: InternalLinksProps) {
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section className="bg-white py-10 lg:py-28">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <h2 className="text-center text-3xl lg:text-[38px] font-medium tracking-[-0.03em] text-slate-900 leading-[1.2] max-w-2xl mx-auto mb-14">
+        <h2 className="text-center text-2xl lg:text-[40px] font-medium tracking-[-0.03em] text-slate-900 leading-[1.2] max-w-2xl mx-auto mb-10 md:mb-14">
           Practical guides on course creation, live classes, and community building
         </h2>
 

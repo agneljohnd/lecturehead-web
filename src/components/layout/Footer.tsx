@@ -52,72 +52,20 @@ const navColumns = [
 
 export function Footer() {
   return (
-    <footer
-      style={{
-        background: "#ffffff",
-        padding: "20px 20px 0",
-      }}
-    >
+    <footer className="bg-white px-4 pt-5 pb-0">
       {/* ── Dark card ── */}
-      <div
-        style={{
-          background: "#15191d",
-          borderRadius: 20,
-          padding: "clamp(32px, 5vw, 56px) clamp(20px, 5vw, 56px) clamp(32px, 4vw, 48px)",
-          maxWidth: 1400,
-          margin: "0 auto",
-        }}
-      >
+      <div className="bg-[#15191d] rounded-[20px] p-[clamp(32px,5vw,56px)_clamp(20px,5vw,56px)_clamp(32px,4vw,48px)] max-w-7xl mx-auto">
         {/* Top — CTA section */}
-        <div
-          style={{
-            textAlign: "center",
-            paddingBottom: 48,
-            borderBottom: "1px solid rgba(255,255,255,0.08)",
-          }}
-        >
-          <h2
-            style={{
-              margin: "0 auto 32px",
-              maxWidth: 600,
-              fontSize: "clamp(28px, 4vw, 40px)",
-              fontWeight: 400,
-              lineHeight: 1.15,
-              letterSpacing: "-0.03em",
-              color: "#ffffff",
-            }}
-          >
-            Everything you need to run courses, cohorts, and community.
+        <div className="text-center pb-12 border-b border-white/10">
+          <h2 className="mx-auto mb-8  text-2xl md:text-[clamp(28px,4vw,40px)] font-light leading-[1.15] tracking-[-0.03em] text-white">
+            Everything you need to run <br /> courses, cohorts, and community.
           </h2>
 
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 12,
-              flexWrap: "wrap",
-            }}
-          >
+          <div className="flex items-center justify-center gap-3 flex-wrap">
             {/* White pill — Book a Demo */}
             <button
               onClick={() => window.dispatchEvent(new CustomEvent("open:demo"))}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                background: "#ffffff",
-                color: "#15191d",
-                borderRadius: 100,
-                padding: "14px 32px",
-                fontSize: "0.8rem",
-                fontWeight: 600,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                cursor: "pointer",
-                border: "none",
-                whiteSpace: "nowrap",
-              }}
+              className="inline-flex items-center gap-2 bg-white text-[#15191d] rounded-full px-8 py-[14px] text-[0.8rem] font-semibold tracking-[0.08em] uppercase cursor-pointer border-none whitespace-nowrap"
             >
               BOOK A DEMO
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
@@ -128,21 +76,7 @@ export function Footer() {
             {/* Dark pill — See How It Works */}
             <Link
               href="#features"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 10,
-                background: "rgba(255,255,255,0.10)",
-                color: "#ffffff",
-                borderRadius: 100,
-                padding: "14px 32px",
-                fontSize: "0.8rem",
-                fontWeight: 600,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                textDecoration: "none",
-                whiteSpace: "nowrap",
-              }}
+              className="inline-flex items-center gap-2.5 bg-white/10 text-white rounded-full px-8 py-[14px] text-[0.8rem] font-semibold tracking-[0.08em] uppercase no-underline whitespace-nowrap"
             >
               <svg width="10" height="12" viewBox="0 0 10 12" fill="white">
                 <path d="M1 1L9 6L1 11V1Z" />
@@ -153,16 +87,7 @@ export function Footer() {
         </div>
 
         {/* Bottom — Logo + nav columns */}
-        <div
-          className="footer-grid"
-          style={{
-            paddingTop: 48,
-            display: "grid",
-            gridTemplateColumns: "200px repeat(4, 1fr)",
-            gap: "clamp(24px, 3vw, 40px)",
-            alignItems: "start",
-          }}
-        >
+        <div className="footer-grid pt-12 grid grid-cols-[200px_repeat(4,1fr)] gap-[clamp(24px,3vw,40px)] items-start">
           {/* Logo + wordmark */}
           <div>
             <Image
@@ -172,15 +97,7 @@ export function Footer() {
               height={56}
               className="rounded-[12px]"
             />
-            <p
-              style={{
-                margin: "12px 0 0",
-                fontSize: "1rem",
-                fontWeight: 500,
-                color: "#ffffff",
-                letterSpacing: "-0.01em",
-              }}
-            >
+            <p className="mt-3 text-base font-medium text-white tracking-[-0.01em]">
               Lecture Head
             </p>
           </div>
@@ -188,24 +105,15 @@ export function Footer() {
           {/* Nav columns */}
           {navColumns.map((col) => (
             <div key={col.heading}>
-              <h3
-                style={{
-                  margin: "0 0 16px",
-                  fontSize: "0.7rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.12em",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.45)",
-                }}
-              >
+              <h3 className="mb-4 text-[0.7rem] font-bold tracking-[0.12em] uppercase text-white/45">
                 {col.heading}
               </h3>
-              <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
+              <ul className="m-0 p-0 list-none flex flex-col gap-2.5">
                 {col.links.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="footer-nav-link"
+                      className="footer-nav-link text-[0.85rem] font-normal text-white/65 no-underline transition-colors duration-200 hover:text-white"
                       {...("external" in link && link.external
                         ? { target: "_blank", rel: "noopener noreferrer" }
                         : {})}
@@ -220,16 +128,28 @@ export function Footer() {
         </div>
       </div>
 
-      <style>{`
-        .footer-nav-link {
-          font-size: 0.85rem;
-          font-weight: 400;
-          color: rgba(255,255,255,0.65);
-          text-decoration: none;
-          transition: color 0.2s;
-        }
-        .footer-nav-link:hover { color: #ffffff; }
+      {/* ── Legal bar — below card, on lavender bg ── */}
+      <div className="flex items-center justify-between px-1 py-4 flex-wrap gap-2">
+        <p className="m-0 text-[0.7rem] font-semibold tracking-[0.1em] uppercase text-black/50">
+          © Lecture Head @{new Date().getFullYear()}
+        </p>
+        <div className="flex gap-6">
+          {[
+            { label: "Privacy & Policy", href: "/privacy" },
+            { label: "Terms and Conditions", href: "/terms" },
+          ].map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className="text-[0.7rem] font-semibold tracking-[0.1em] uppercase text-black/50 no-underline"
+            >
+              {l.label}
+            </Link>
+          ))}
+        </div>
+      </div>
 
+      <style jsx>{`
         /* Tablet — logo on its own row, nav columns in a 2-up grid */
         @media (max-width: 900px) {
           .footer-grid {
@@ -240,52 +160,6 @@ export function Footer() {
           }
         }
       `}</style>
-
-      {/* ── Legal bar — below card, on lavender bg ── */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "16px 4px 20px",
-          flexWrap: "wrap",
-          gap: 8,
-        }}
-      >
-        <p
-          style={{
-            margin: 0,
-            fontSize: "0.7rem",
-            fontWeight: 600,
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            color: "rgba(0,0,0,0.5)",
-          }}
-        >
-          © Lecture Head @{new Date().getFullYear()}
-        </p>
-        <div style={{ display: "flex", gap: 24 }}>
-          {[
-            { label: "Privacy & Policy", href: "/privacy" },
-            { label: "Terms and Conditions", href: "/terms" },
-          ].map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              style={{
-                fontSize: "0.7rem",
-                fontWeight: 600,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: "rgba(0,0,0,0.5)",
-                textDecoration: "none",
-              }}
-            >
-              {l.label}
-            </Link>
-          ))}
-        </div>
-      </div>
     </footer>
   );
 }

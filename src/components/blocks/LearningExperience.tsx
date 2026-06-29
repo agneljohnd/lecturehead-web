@@ -116,17 +116,17 @@ const cards = [
 
 export function LearningExperience() {
   return (
-    <section className="bg-white py-20 lg:py-28">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+    <section className="bg-white py-10 lg:py-28">
+      <div className="max-w-6xl mx-auto px-4 lg:px-8">
 
         {/* Top row */}
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-10">
-          <h2 className="text-3xl lg:text-[40px] font-medium text-black tracking-[-0.03em] leading-[1.15] max-w-lg">
+          <h2 className="text-2xl lg:text-[40px] font-medium text-black tracking-[-0.03em] leading-[1.15] max-w-lg">
             A learning experience students actually enjoy.
           </h2>
           <button
             onClick={() => window.dispatchEvent(new CustomEvent("open:demo"))}
-            className="flex-shrink-0 self-start inline-flex items-center gap-2 rounded-full border border-black/20 px-6 py-3 text-[11px] font-semibold uppercase tracking-widest text-black hover:bg-black/5 transition-colors"
+            className="flex-shrink-0 self-start inline-flex items-center gap-2 rounded-full border border-black/20 px-6 py-3 text-[10px] md:text-[11px] font-semibold uppercase tracking-widest text-black hover:bg-black/5 transition-colors"
           >
             Book a Demo
             <svg width="11" height="11" viewBox="0 0 16 16" fill="none">

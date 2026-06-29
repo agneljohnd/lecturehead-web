@@ -17,19 +17,19 @@ interface HeroProps {
 
 export function Hero({ eyebrow, headingLines, subtext, primaryCTA, secondaryCTA }: HeroProps) {
   return (
-    <section className="relative bg-white overflow-hidden">
+    <section className="relative bg-white  overflow-hidden">
       {/* Purple glow top-left */}
       <div
-        className="pointer-events-none absolute -top-20 -left-20 w-[700px] h-[600px]"
+        className="pointer-events-none  absolute -top-20 -left-20 w-[700px] h-[600px]"
         style={{
           background:
             "radial-gradient(ellipse at top left, rgba(102,51,209,0.07) 0%, transparent 60%)",
         }}
       />
 
-      <div className="relative flex flex-col lg:flex-row lg:items-center lg:min-h-[720px]">
+      <div className="relative container mx-auto flex flex-col lg:flex-row lg:items-center lg:min-h-[720px]">
         {/* ── Left: text ── */}
-        <div className="px-8 pt-36 pb-16 lg:px-16 lg:pt-44 lg:pb-28 lg:w-[55%]">
+        <div className="px-4 pt-28  lg:px-16 lg:pt-30 lg:pb-28 lg:w-[55%]">
           {eyebrow && (
             <>
               <style>{`
@@ -61,7 +61,7 @@ export function Hero({ eyebrow, headingLines, subtext, primaryCTA, secondaryCTA 
             </>
           )}
 
-          <h1 className="text-[44px] sm:text-[68px] lg:text-[86px] font-medium leading-[0.95] sm:leading-[0.92] tracking-[-0.04em] text-black">
+          <h1 className="text-3xl sm:text-[68px] lg:text-[86px] font-medium leading-[0.95] sm:leading-[0.92] tracking-[-0.04em] text-black">
             {headingLines.map((line, i) =>
               line.includes("\n") ? (
                 line.split("\n").map((part, j) => (
@@ -78,12 +78,12 @@ export function Hero({ eyebrow, headingLines, subtext, primaryCTA, secondaryCTA 
           </h1>
 
           {subtext && (
-            <p className="mt-8 text-base text-slate-500 max-w-[380px] leading-relaxed">
+            <p className="md:mt-8 mt-5 text-base text-slate-500 max-w-[380px] leading-relaxed">
               {subtext}
             </p>
           )}
 
-          <div className="mt-10 flex flex-wrap items-center gap-6">
+          <div className="md:mt-10 mt-6 flex flex-col md:flex-row  items-center justify-center md:justify-start gap-6">
             {primaryCTA && (
               <Button id="hero-book-btn" onClick={openDemo} variant="dark" size="lg" arrow>
                 {primaryCTA.label}
@@ -92,7 +92,7 @@ export function Hero({ eyebrow, headingLines, subtext, primaryCTA, secondaryCTA 
             {secondaryCTA && (
               <button
                 onClick={openDemo}
-                className="inline-flex items-center gap-2.5 text-sm font-medium text-slate-600 hover:text-black transition-colors"
+                className="inline-flex w items-center gap-2.5 text-sm font-medium text-slate-600 hover:text-black transition-colors"
               >
                 <span className="flex h-5 w-5 items-center justify-center rounded-full bg-slate-100">
                   <svg width="8" height="10" viewBox="0 0 8 10" fill="currentColor">
@@ -107,7 +107,7 @@ export function Hero({ eyebrow, headingLines, subtext, primaryCTA, secondaryCTA 
         </div>
 
         {/* ── Right: dashboard screenshot + social proof ── */}
-        <div className="relative lg:absolute lg:right-0 lg:top-0 lg:bottom-0 lg:w-[48%] flex flex-col items-center justify-center overflow-hidden pt-24 lg:pt-0">
+        <div className="relative  lg:absolute lg:right-0 lg:top-0 lg:bottom-0 lg:w-[48%] flex flex-col items-center justify-center overflow-hidden pt-5 md:pt-24 lg:pt-0">
           <Image
             src="/images/usable-images/LMS Portal open.png"
             alt="LectureHead LMS dashboard"
@@ -181,7 +181,7 @@ export function Hero({ eyebrow, headingLines, subtext, primaryCTA, secondaryCTA 
           z-index: 1;
         }
         .hero-face:hover {
-          transform: scale(2.4);
+          transform: scale(1.1);
           z-index: 20;
         }
       `}</style>

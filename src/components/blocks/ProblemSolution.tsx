@@ -85,12 +85,12 @@ export function ProblemSolution() {
   const activeFeature = features.find((f) => f.id === active)!;
 
   return (
-    <section id="features" className="bg-[#09090b] py-20 lg:py-28">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+    <section id="features" className="bg-[#09090b] py-10 lg:py-28">
+      <div className="max-w-6xl mx-auto px-4 lg:px-8">
 
         {/* Top row: heading + CTA */}
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-12">
-          <h2 className="text-3xl lg:text-[40px] font-medium text-white tracking-[-0.03em] leading-[1.15] max-w-2xl">
+          <h2 className="text-2xl lg:text-[40px] font-medium text-white tracking-[-0.03em] leading-[1.15] max-w-2xl">
             From launching your first course to scaling it to millions of students
           </h2>
           <button
@@ -140,7 +140,7 @@ export function ProblemSolution() {
                           </motion.span>
                         )}
                       </AnimatePresence>
-                      <span className={`text-sm font-semibold transition-colors duration-200 ${isActive ? "text-slate-900" : "text-slate-500"}`}>
+                      <span className={`text-sm md:text-base font-semibold transition-colors duration-200 ${isActive ? "text-slate-900" : "text-slate-500"}`}>
                         {f.title}
                       </span>
                     </div>
@@ -156,48 +156,59 @@ export function ProblemSolution() {
                   </div>
 
                   {/* Expandable description */}
-                  <AnimatePresence initial={false}>
-                    {isActive && (
-                      <motion.div
-                        key="content"
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                        style={{ overflow: "hidden" }}
-                      >
-                        <p className="px-5 pb-5 text-sm text-slate-500 leading-relaxed">
-                          {f.description}
-                        </p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+            <AnimatePresence initial={false}>
+  {isActive && (
+    <motion.div
+      key="content"
+      initial={{ height: 0, opacity: 0 }}
+      animate={{ height: "auto", opacity: 1 }}
+      exit={{ height: 0, opacity: 0 }}
+      transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+      style={{ overflow: "hidden" }}
+    >
+      <p className="px-5 text-sm md:text-base lg:h-36 text-slate-500 leading-relaxed">
+        {f.description}
+      </p>
+
+      {/* Mobile Image */}
+      <div className="lg:hidden mt-4 px-5 pb-5">
+        <div className="relative w-full h-[220px] rounded-xl overflow-hidden bg-slate-100">
+          <Image
+            src={featureImages[f.id]}
+            alt={f.title}
+            fill
+            className="object-contain"
+          />
+        </div>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
                 </motion.button>
               );
             })}
           </div>
 
           {/* Right: preview panel — explicit height on mobile, grid-stretch on desktop */}
-          <div className="rounded-[16px] bg-white overflow-hidden relative min-h-[280px] sm:min-h-[380px] lg:min-h-0">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
-                className="absolute inset-0"
-              >
-                <Image
-                  src={featureImages[active]}
-                  alt={activeFeature.title}
-                  fill
-                  className="object-cover object-top"
-                />
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
+      <div className="rounded-[16px] bg-white overflow-hidden relative hidden md:block">
+  <AnimatePresence mode="wait">
+    <motion.div
+      key={active}
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -8 }}
+      transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+      className="absolute inset-0 flex items-center justify-center"
+    >
+      <Image
+        src={featureImages[active]}
+        alt={activeFeature.title}
+        fill
+        className="object-contain"
+      />
+    </motion.div>
+  </AnimatePresence>
+</div>
         </div>
       </div>
     </section>

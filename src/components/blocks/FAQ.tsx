@@ -12,16 +12,16 @@ export function FAQBlock({ items, id }: FAQProps) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id={id} className="py-20 lg:py-28" style={{ backgroundColor: "#f5f5f5" }}>
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-16 items-start">
+    <section id={id} className="py-10 lg:py-28" style={{ backgroundColor: "#f5f5f5" }}>
+      <div className="max-w-6xl mx-auto px-4 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr]  gap-10 md:gap-16 items-start">
 
           {/* Left: heading + subtext + CTA */}
           <div className="lg:sticky lg:top-28">
-            <h2 className="text-4xl lg:text-5xl font-bold text-black tracking-[-0.03em] leading-[1.1] mb-auto">
+            <h2 className="text-2xl lg:text-[40px] font-bold text-black tracking-[-0.03em] leading-[1.1] mb-auto">
               General Questions asked by customers.
             </h2>
-            <div className="mt-auto pt-16">
+            <div className="mt-auto pt-10 md:pt-16">
               <p className="text-sm text-slate-500 leading-relaxed mb-5">
                 Our friendly team is always here to help you with quick, clear, and reliable answers whenever needed.
               </p>

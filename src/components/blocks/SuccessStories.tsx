@@ -15,7 +15,7 @@ export function SuccessStories() {
   const t = testimonials[active];
 
   return (
-    <section id="stories" style={{ backgroundColor: "#f5f5f5" }} className="py-20 lg:py-28">
+    <section id="stories" style={{ backgroundColor: "#f5f5f5" }} className="py-10 lg:py-28">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* Two-column section layout */}
@@ -49,8 +49,96 @@ export function SuccessStories() {
             </h2>
 
             {/* Card */}
-            <div className="bg-white rounded-2xl p-8 lg:p-10">
-              <div className="grid grid-cols-[64px_1fr] gap-8 lg:gap-10">
+            <div className="bg-white rounded-md  p-8 lg:p-10">
+              <div className="flex lg:hidden gap-5">
+
+    {/* Left */}
+    <div className="flex-1">
+      <p className="text-sm font-medium text-slate-400 tabular-nums mb-5">
+        {String(active + 1).padStart(2, "0")}
+        <span className="text-slate-300"> / </span>
+        {String(total).padStart(2, "0")}
+      </p>
+
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={active}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.25 }}
+        >
+          <p className="text-base text-slate-700 h-60 leading-relaxed">
+            &ldquo;{t.quote}&rdquo;
+          </p>
+
+          <div className="mt-8 flex items-center gap-3">
+            {t.photo ? (
+              <Image
+                src={t.photo}
+                alt={t.author}
+                width={40}
+                height={40}
+                className="rounded-full object-cover"
+              />
+            ) : (
+              <div
+                className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold"
+                style={{ background: "#e9e4ff", color: "#6633d1" }}
+              >
+                {t.avatarInitials}
+              </div>
+            )}
+
+            <div>
+              <p className="text-sm font-semibold text-slate-900">
+                {t.author}
+              </p>
+              <p className="text-xs text-slate-400">
+                {t.role}
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+      <div className="flex  items-center justify-center mt-6 gap-2">
+        <button
+        onClick={prev}
+        className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center"
+      >
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+          <path
+            d="M10 4L6 8l4 4"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+      <button
+        onClick={next}
+        className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center"
+      >
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+          <path
+            d="M6 4l4 4-4 4"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+
+      
+    </div>
+    </div>
+
+    {/* Right Arrows */}
+    
+  </div>
+              <div className="hidden lg:grid  lg:grid-cols-[64px_1fr] gap-8 lg:gap-10">
 
                 {/* Left: counter + arrows */}
                 <div className="flex flex-col justify-between">
@@ -61,16 +149,8 @@ export function SuccessStories() {
                   </p>
 
                   {/* next (→) first, then prev (←) */}
-                  <div className="flex flex-col gap-2 mt-auto">
-                    <button
-                      onClick={next}
-                      className="w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:border-slate-500 hover:text-slate-800 transition-colors"
-                      aria-label="Next testimonial"
-                    >
-                      <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                        <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </button>
+                   <div className="flex  gap-2 mt-auto">
+                    
                     <button
                       onClick={prev}
                       className="w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:border-slate-500 hover:text-slate-800 transition-colors"
@@ -78,6 +158,15 @@ export function SuccessStories() {
                     >
                       <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
                         <path d="M10 4L6 8l4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </button>
+                    <button
+                      onClick={next}
+                      className="w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:border-slate-500 hover:text-slate-800 transition-colors"
+                      aria-label="Next testimonial"
+                    >
+                      <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                        <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </button>
                   </div>
@@ -93,11 +182,12 @@ export function SuccessStories() {
                     transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
                     className="flex flex-col"
                   >
-                    <p className="text-base lg:text-lg text-slate-700 leading-relaxed">
+                    <p className="text-base lg:text-lg h-32 text-slate-700 leading-relaxed">
                       &ldquo;{t.quote}&rdquo;
                     </p>
 
-                    <div className="mt-12 flex items-center gap-3">
+               
+                     <div className="mt-12 flex items-center gap-3">
                       {t.photo ? (
                         <Image
                           src={t.photo}
@@ -120,12 +210,18 @@ export function SuccessStories() {
                         <p className="text-xs text-slate-400 mt-0.5">{t.role}</p>
                       </div>
                     </div>
+                   
+   
+                    
                   </motion.div>
+                  
+                  
                 </AnimatePresence>
+                
 
               </div>
             </div>
-
+ 
           </div>
         </div>
 

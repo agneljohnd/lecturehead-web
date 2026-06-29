@@ -8,30 +8,57 @@ import { primaryNav, ctaNav } from "@/content/site/nav";
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showHeader, setShowHeader] = useState(true);
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 20);
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Add background effect after scrolling
+      setScrolled(currentScrollY > 20);
+
+      // Always show when near the top
+      if (currentScrollY < 20) {
+        setShowHeader(true);
+      }
+      // Hide while scrolling down
+      else if (currentScrollY > lastScrollY) {
+        setShowHeader(false);
+      }
+      // Show while scrolling up
+      else {
+        setShowHeader(true);
+      }
+
+      lastScrollY = currentScrollY;
     };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close the mobile menu whenever the header hides on scroll
+  // Close mobile menu when header hides
   useEffect(() => {
-    if (scrolled) setMenuOpen(false);
-  }, [scrolled]);
+    if (!showHeader) {
+      setMenuOpen(false);
+    }
+  }, [showHeader]);
 
   return (
     <div
-      className="fixed top-4 z-50 left-1/2 -translate-x-1/2 w-[calc(100%-32px)] md:w-[calc(100%-80px)] max-w-4xl transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
-      style={{
-        transform: scrolled
-          ? "translate(-50%, -120%)"
-          : "translate(-50%, 0)",
-      }}
+      className={`fixed left-1/2 z-50
+      w-[calc(100%-32px)] md:w-[calc(100%-80px)] max-w-4xl
+      -translate-x-1/2 transition-all duration-300 ease-in-out
+      ${
+        showHeader
+          ? "top-4 opacity-100 translate-y-0"
+          : "-top-24 opacity-0 -translate-y-4"
+      }`}
     >
-      {/* Floating white card */}
+      {/* Floating Card */}
       <header
         className="rounded-[28px] md:rounded-full px-1 py-1"
         style={{
@@ -43,12 +70,11 @@ export function Header() {
             "0 4px 20px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.08)",
         }}
       >
-        {/* Use relative + absolute so nav is always perfectly centered */}
         <div className="relative flex h-[52px] items-center px-3 sm:px-4">
-          {/* Logo — left */}
+          {/* Logo */}
           <Link
             href="/"
-            className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-600 rounded flex-none"
+            className="flex-none rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-600"
             aria-label="LectureHead home"
           >
             <span
@@ -62,16 +88,16 @@ export function Header() {
             </span>
           </Link>
 
-          {/* Nav — absolutely centered relative to the pill (desktop only) */}
+          {/* Desktop Navigation */}
           <nav
             aria-label="Primary navigation"
-            className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-5"
+            className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-5 md:flex"
           >
             {primaryNav.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-[11px] font-medium uppercase tracking-widest text-slate-500 hover:text-slate-900 transition-colors whitespace-nowrap"
+                className="whitespace-nowrap text-[11px] font-medium uppercase tracking-widest text-slate-500 transition-colors hover:text-slate-900"
                 {...(link.external && {
                   target: "_blank",
                   rel: "noopener noreferrer",
@@ -82,10 +108,12 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Right cluster — CTA + mobile menu toggle */}
-          <div className="ml-auto flex-none flex items-center gap-1.5 sm:gap-2">
+          {/* Right Side */}
+          <div className="ml-auto flex flex-none items-center gap-1.5 sm:gap-2">
             <Button
-              onClick={() => window.dispatchEvent(new CustomEvent("open:demo"))}
+              onClick={() =>
+                window.dispatchEvent(new CustomEvent("open:demo"))
+              }
               variant="dark"
               size="sm"
               arrow
@@ -94,32 +122,42 @@ export function Header() {
               {ctaNav.label}
             </Button>
 
-            {/* Hamburger — mobile only */}
+            {/* Mobile Menu Button */}
             <button
               type="button"
-              onClick={() => setMenuOpen((o) => !o)}
+              onClick={() => setMenuOpen((prev) => !prev)}
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
-              className="md:hidden flex h-9 w-9 items-center justify-center rounded-full text-slate-700 hover:bg-black/5 transition-colors"
+              className="flex h-9 w-9 items-center justify-center rounded-full text-slate-700 transition-colors hover:bg-black/5 md:hidden"
             >
               {menuOpen ? (
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M2 2l12 12M14 2L2 14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                  <path
+                    d="M2 2L14 14M14 2L2 14"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                  />
                 </svg>
               ) : (
                 <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
-                  <path d="M1 1h16M1 7h16M1 13h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                  <path
+                    d="M1 1H17M1 7H17M1 13H17"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                  />
                 </svg>
               )}
             </button>
           </div>
         </div>
 
-        {/* Mobile dropdown menu */}
+        {/* Mobile Navigation */}
         {menuOpen && (
           <nav
             aria-label="Mobile navigation"
-            className="md:hidden px-2 pb-2 pt-1"
+            className="px-2 pb-2 pt-1 md:hidden"
           >
             <ul className="flex flex-col">
               {primaryNav.map((link) => (
@@ -127,7 +165,7 @@ export function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-black/5 transition-colors"
+                    className="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-black/5"
                     {...(link.external && {
                       target: "_blank",
                       rel: "noopener noreferrer",
