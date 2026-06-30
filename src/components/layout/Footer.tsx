@@ -57,15 +57,15 @@ export function Footer() {
       <div className="bg-[#15191d] rounded-[20px] p-[clamp(32px,5vw,56px)_clamp(20px,5vw,56px)_clamp(32px,4vw,48px)] max-w-7xl mx-auto">
         {/* Top — CTA section */}
         <div className="text-center pb-12 border-b border-white/10">
-          <h2 className="mx-auto mb-8  text-2xl md:text-[clamp(28px,4vw,40px)] font-light leading-[1.15] tracking-[-0.03em] text-white">
-            Everything you need to run <br /> courses, cohorts, and community.
+          <h2 className="mx-auto mb-8 max-w-[600px] text-[clamp(28px,4vw,40px)] font-light leading-[1.15] tracking-[-0.03em] text-white">
+            Everything you need to run courses, cohorts, and community.
           </h2>
 
-          <div className="flex items-center justify-center gap-3 flex-wrap">
+          <div className="flex items-center justify-center gap-1 ">
             {/* White pill — Book a Demo */}
             <button
               onClick={() => window.dispatchEvent(new CustomEvent("open:demo"))}
-              className="inline-flex items-center gap-2 bg-white text-[#15191d] rounded-full px-8 py-[14px] text-[0.8rem] font-semibold tracking-[0.08em] uppercase cursor-pointer border-none whitespace-nowrap"
+              className="inline-flex items-center gap-2 bg-white text-[#15191d] rounded-full px-4 md:px-8 py-[14px] text-[11px] md:text-[0.8rem] font-semibold tracking-[0.08em] uppercase cursor-pointer border-none whitespace-nowrap"
             >
               BOOK A DEMO
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
@@ -76,7 +76,7 @@ export function Footer() {
             {/* Dark pill — See How It Works */}
             <Link
               href="#features"
-              className="inline-flex items-center gap-2.5 bg-white/10 text-white rounded-full px-8 py-[14px] text-[0.8rem] font-semibold tracking-[0.08em] uppercase no-underline whitespace-nowrap"
+              className="inline-flex items-center gap-2.5 bg-white/10 text-white rounded-full px-3 md:px-8 py-[14px] text-[11px] md:text-[0.8rem] font-semibold tracking-[0.08em] uppercase no-underline whitespace-nowrap"
             >
               <svg width="10" height="12" viewBox="0 0 10 12" fill="white">
                 <path d="M1 1L9 6L1 11V1Z" />

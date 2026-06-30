@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+
+
 
 const DISCOUNT = 0.3;
 
@@ -20,43 +23,68 @@ function GreenCheck() {
     </svg>
   );
 }
-
 const plans = [
   {
-    name: "Growth",
+    name: "Starter",
     tag: null,
     base: 5999,
-    desc: "Best for educators just getting started.",
-    intro: "Everything you need to launch plus…",
+    desc: "Perfect for educators and creators starting their online teaching journey.",
+    intro: "Everything you need to launch your academy…",
     features: [
-      "Up to 500 students",
-      "50 GB storage",
-      "Recorded course hosting",
-      "Quizzes & assessments",
-      "Certificates",
-      "0% commission",
+      "100 GB Storage",
+      "1 Instructor",
+      "Recorded Courses",
+      "Live Classes",
+      "Comment Discussion",
+      "Review Collection",
+      "Fixed Certificate",
+      "Coupons",
     ],
   },
   {
     name: "Pro",
     tag: "Popular",
     base: 13799,
-    desc: "For serious educators building a full business.",
-    intro: "Everything in Growth plus…",
+    desc: "Built for growing academies that need advanced learning tools.",
+    intro: "Everything in Starter plus…",
     features: [
-      "Unlimited students",
-      "200 GB storage",
-      "Live coaching & cohorts",
-      "Built-in community",
-      "AI student assistant",
-      "White-label platform",
-      "Priority support",
-      "0% commission",
+      "200 GB Storage",
+      "Multiple Instructors (3 Licenses)",
+      "Leaderboard",
+      "Brand Color Customization",
+      "Community",
+      "Automated Surveys",
+      "Certificate Customization",
+      "Prebook Option",
+      "Split Payment",
+      "Drip Learning",
+      "Cohort Scheduling",
+      "Duplicate Programs & Reuse",
+   
+"White Label"
     ],
   },
+  
 ];
 
-const logos = ["upwork", "Notion", "Razorpay", "Zoom", "Slack", "Stripe", "Loom", "Intercom"];
+const logos = [
+  {
+    src: "/images/logos/emc.png",
+    alt: "Logo 1",
+  },
+  {
+    src: "/images/logos/hrlogo.png",
+    alt: "Logo 2",
+  },
+  {
+    src: "/images/logos/ss.png",
+    alt: "Logo 3",
+  },
+  {
+    src: "/images/logos/gglogo.png",
+    alt: "Logo 4",
+  },
+];
 
 export function PricingSection() {
   const [annual, setAnnual] = useState(true);
@@ -182,7 +210,7 @@ export function PricingSection() {
             <p className="text-xs text-slate-400 mb-3">pricing</p>
 
             <p className="text-sm text-slate-500 leading-relaxed mb-5">
-              For institutions, large teams, and custom deployments.
+              For institutions & large teams 
             </p>
 
             <button
@@ -196,13 +224,23 @@ export function PricingSection() {
               <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Features</p>
               <p className="text-xs text-slate-500 mb-3">Everything in Pro plus…</p>
               <ul className="space-y-2.5">
-                {[
-                  "Custom student limits",
-                  "Dedicated infrastructure",
-                  "SLA & uptime guarantee",
-                  "Custom integrations",
-                  "Onboarding & training",
-                  "Dedicated account manager",
+             {[
+  "Custom storage",
+  "Multiple Instructors",
+  "Leaderboard",
+  "Brand Color Customization",
+  "Community",
+  "Automated Surveys",
+  "Certificate Customization",
+  "Prebook Option",
+  "Split Payment",
+  "Drip Learning",
+  "Cohort Scheduling",
+  "Duplicate Programs & Reuse",
+  "Custom Integrations",
+  "Dedicated Account Manager",
+  "Priority Support",
+
                 ].map((f) => (
                   <li key={f} className="flex items-start gap-2.5 text-sm text-slate-600">
                     <GreenCheck />
@@ -216,19 +254,20 @@ export function PricingSection() {
         </div>
 
         {/* Logo trust strip */}
-        <div className="mt-14 pt-10 border-t border-slate-100">
-          <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-12">
-            {logos.map((logo) => (
-              <span
-                key={logo}
-                className="text-slate-400 font-semibold text-sm lg:text-base tracking-tight select-none"
-                style={{ fontFamily: "inherit" }}
-              >
-                {logo}
-              </span>
-            ))}
-          </div>
-        </div>
+        <div className="mt-14 md:pt-10 border-t border-slate-100">
+  <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-12">
+    {logos.map((logo) => (
+      <Image
+        key={logo.alt}
+        src={logo.src}
+        alt={logo.alt}
+        width={140}
+        height={50}
+        className=" h-10 md:h-auto w-auto object-contain opacity-70 transition-all duration-300 hover:opacity-100"
+      />
+    ))}
+  </div>
+</div>
 
       </div>
     </section>

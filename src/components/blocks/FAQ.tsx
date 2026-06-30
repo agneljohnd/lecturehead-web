@@ -21,7 +21,7 @@ export function FAQBlock({ items, id }: FAQProps) {
             <h2 className="text-2xl lg:text-[40px] font-bold text-black tracking-[-0.03em] leading-[1.1] mb-auto">
               General Questions asked by customers.
             </h2>
-            <div className="mt-auto pt-10 md:pt-16">
+            <div className="mt-auto pt-5 md:pt-16">
               <p className="text-sm text-slate-500 leading-relaxed mb-5">
                 Our friendly team is always here to help you with quick, clear, and reliable answers whenever needed.
               </p>

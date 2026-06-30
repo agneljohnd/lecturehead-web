@@ -126,7 +126,7 @@ export function LearningExperience() {
           </h2>
           <button
             onClick={() => window.dispatchEvent(new CustomEvent("open:demo"))}
-            className="flex-shrink-0 self-start inline-flex items-center gap-2 rounded-full border border-black/20 px-6 py-3 text-[10px] md:text-[11px] font-semibold uppercase tracking-widest text-black hover:bg-black/5 transition-colors"
+            className="flex-shrink-0 self-start inline-flex items-center gap-2 rounded-full border border-black/20 px-6 py-3  text-[11px] font-semibold uppercase tracking-widest text-black hover:bg-black/5 transition-colors"
           >
             Book a Demo
             <svg width="11" height="11" viewBox="0 0 16 16" fill="none">

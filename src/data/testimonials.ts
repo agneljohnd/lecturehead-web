@@ -13,7 +13,7 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Our previous LMS was eating 30% of our revenue in commissions and offered zero support when we needed it. We switched to LectureHead and immediately saw results. The 'Experience Before Buy' feature alone converted students who were on the fence. In 3 months, our revenue increased by 1.5x. And setup was completely hassle-free.",
+      "We onboard more than 400 students every month on LectureHead. Before this, we were using so many different tools and it became exhausting. One of the biggest benefits is that we no longer pay commission on our sales. We can now use that money to improve our product and invest more in research and development.",
     highlight: "The 'Experience Before Buy' feature alone converted students who were on the fence.",
     author: "Richa Marcia",
     role: "Co-founder, Error Makes Clever",
@@ -28,7 +28,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "I was using three different tools just to run one course — a payment gateway, a WhatsApp group, and a Zoom account. LectureHead replaced all of them. My students now have a real learning home, and I spend zero time chasing payments or sharing Zoom links. The cohort feature changed how I teach.",
+      "My team can now run classes on their own without my involvement. Earlier, we had to switch between Zoom, WhatsApp, and manual certificate approvals, which took a lot of time. With LectureHead, everything is in one place and the whole process has become much smoother.",
     highlight: "LectureHead replaced all of them. My students now have a real learning home.",
     author: "Navin Kumar",
     role: "Founder, HR Learners Hub",
@@ -43,7 +43,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "The built-in community feature is what sold me. My students were asking questions in 5 different places before — now everything happens inside LectureHead. Engagement shot up, and I actually enjoy teaching again because I'm not managing chaos. The live class feature is seamless.",
+      "LectureHead feels much more professional than any platform I have used before. Whenever I need help, their support team is always quick to respond. They have paid attention to even the smallest details, and it really shows.",
     highlight: "Engagement shot up, and I actually enjoy teaching again because I'm not managing chaos.",
     author: "Thoufique",
     role: "CEO, Grid & Goal",

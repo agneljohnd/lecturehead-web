@@ -4,30 +4,47 @@ export interface FAQ {
 }
 
 // Homepage FAQs — also used for FAQPage schema
+
 export const homepageFAQs: FAQ[] = [
   {
-    question: "What is LectureHead?",
+    question: "Do I need technical knowledge to use LectureHead?",
     answer:
-      "LectureHead is an all-in-one online course platform for creators, coaches, and educators. Host and sell courses, run live cohorts, build a community, track student progress, and keep 100% of your revenue with 0% commission — all from one platform.",
+      "No. You can create courses, host live classes, manage students, issue certificates, and accept payments without writing any code.",
   },
   {
-    question: "Who is LectureHead for?",
+    question: "How long does it take to set up my academy?",
     answer:
-      "LectureHead is built for online course creators, coaches, training institutes, bootcamps, and educators who want to sell and deliver courses, cohorts, and live classes — without paying commission on their sales.",
+      "Most creators can launch their academy within a few hours after signing up.",
   },
   {
-    question: "How do I get started with LectureHead?",
+    question: "Can I migrate from another platform?",
     answer:
-      "Book a free demo and our team will walk you through the platform, help you set up your courses, and get you live. No credit card required to start.",
+      "Yes. We can help you move your videos, student data, and course structure from your existing platform.",
   },
   {
-    question: "Does LectureHead handle payments and integrations?",
+    question: "Do you charge commission on course sales?",
     answer:
-      "Yes. LectureHead includes built-in payments — including split payments — so you can sell courses directly and receive 100% of your revenue. We also support common creator tools and are continuously adding more integrations.",
+      "No. LectureHead charges 0% commission. Every rupee you earn is yours.",
   },
   {
-    question: "How is LectureHead different from other course platforms?",
+    question: "How much storage do I get?",
     answer:
-      "Unlike most course platforms that charge commission or transaction fees on every sale, LectureHead lets you keep 100% of your revenue for a simple subscription. It's truly all-in-one — courses, live cohorts, community, and assessments — so you don't need to stitch together multiple tools.",
+      "Starter includes 100 GB of storage, while Pro includes 200 GB. Additional storage can be purchased if required.",
+  },
+  {
+    question: "Are my videos secure?",
+    answer:
+      "Yes. Your course content is securely hosted to help protect it from unauthorized access.",
+  },
+  {
+    question: "What kind of support do you provide?",
+    answer:
+      "Our team is available to help with onboarding, setup, and technical support whenever you need assistance.",
+  },
+  {
+    question: "Can I request new features?",
+    answer:
+      "Absolutely. We actively work with creators and regularly release improvements based on customer feedback.",
   },
 ];
+
