@@ -14,7 +14,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Online Course Platform for Creators — LectureHead",
+    default: "LectureHead — Online Course Platform for Creators ",
     template: "%s | LectureHead",
   },
   description:

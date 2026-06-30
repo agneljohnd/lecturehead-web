@@ -107,7 +107,7 @@ export function Hero({ eyebrow, headingLines, subtext, primaryCTA, secondaryCTA 
         </div>
 
         {/* ── Right: dashboard screenshot + social proof ── */}
-        <div className="relative  lg:absolute lg:right-0 lg:top-0 lg:bottom-0 lg:w-[48%] flex flex-col items-center justify-center overflow-hidden pt-5 md:pt-24 lg:pt-0">
+        <div className="relative  lg:absolute lg:right-0 lg:top-0 lg:bottom-0 lg:w-[48%] flex flex-col items-center justify-center overflow-hidden pt-5 lg:pt-24 lg:pt-0">
           <Image
             src="/images/usable-images/LMS Portal open.png"
             alt="LectureHead LMS dashboard"

@@ -138,7 +138,7 @@ export function SuccessStories() {
     {/* Right Arrows */}
     
   </div>
-              <div className="hidden lg:grid  lg:grid-cols-[64px_1fr] gap-8 lg:gap-10">
+              <div className="hidden lg:grid  lg:grid-cols-[85px_1fr] gap-8 lg:gap-10">
 
                 {/* Left: counter + arrows */}
                 <div className="flex flex-col justify-between">
@@ -149,27 +149,39 @@ export function SuccessStories() {
                   </p>
 
                   {/* next (→) first, then prev (←) */}
-                   <div className="flex  gap-2 mt-auto">
-                    
-                    <button
-                      onClick={prev}
-                      className="w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:border-slate-500 hover:text-slate-800 transition-colors"
-                      aria-label="Previous testimonial"
-                    >
-                      <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                        <path d="M10 4L6 8l4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </button>
-                    <button
-                      onClick={next}
-                      className="w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:border-slate-500 hover:text-slate-800 transition-colors"
-                      aria-label="Next testimonial"
-                    >
-                      <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                        <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </button>
-                  </div>
+                  <div className="flex gap-2 mt-auto">
+  <button
+    onClick={prev}
+    className="w-16 h-10 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:border-slate-500 hover:text-slate-800 transition-colors"
+    aria-label="Previous testimonial"
+  >
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <path
+        d="M12.5 5L7.5 10L12.5 15"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  </button>
+
+  <button
+    onClick={next}
+    className="w-16 h-10 rounded-full border border-slate-300 flex items-center justify-center text-slate-500 hover:border-slate-500 hover:text-slate-800 transition-colors"
+    aria-label="Next testimonial"
+  >
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <path
+        d="M7.5 5L12.5 10L7.5 15"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  </button>
+</div>
                 </div>
 
                 {/* Right: quote + author — single AnimatePresence for clean transitions */}

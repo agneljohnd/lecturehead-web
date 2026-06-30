@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-
+import { ArrowRight } from "lucide-react";
 
 
 const DISCOUNT = 0.3;
@@ -31,11 +31,14 @@ const plans = [
     desc: "Perfect for educators and creators starting their online teaching journey.",
     intro: "Everything you need to launch your academy…",
     features: [
-      "100 GB Storage",
+
+      "Unlimited Users",
+      "Unlimited Courses ",
       "1 Instructor",
       "Recorded Courses",
       "Live Classes",
       "Comment Discussion",
+      "100 GB Storage",
       "Review Collection",
       "Fixed Certificate",
       "Coupons",
@@ -48,7 +51,9 @@ const plans = [
     desc: "Built for growing academies that need advanced learning tools.",
     intro: "Everything in Starter plus…",
     features: [
-      "200 GB Storage",
+
+      "Unlimited Users",
+       "Unlimited Courses ",
       "Multiple Instructors (3 Licenses)",
       "Leaderboard",
       "Brand Color Customization",
@@ -58,13 +63,13 @@ const plans = [
       "Prebook Option",
       "Split Payment",
       "Drip Learning",
+      "200 GB Storage",
       "Cohort Scheduling",
       "Duplicate Programs & Reuse",
-   
-"White Label"
+      "White Label"
     ],
   },
-  
+
 ];
 
 const logos = [
@@ -83,6 +88,13 @@ const logos = [
   {
     src: "/images/logos/gglogo.png",
     alt: "Logo 4",
+  }, {
+    src: "/images/logos/sp.png",
+    alt: "Logo 5",
+  },
+  {
+    src: "/images/logos/ccs.png",
+    alt: "Logo 6",
   },
 ];
 
@@ -96,26 +108,26 @@ export function PricingSection() {
         {/* Top row: heading + rating */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-10">
           {/* Mixed-typography heading */}
-         <h2 style={{ margin: 0, lineHeight: 1.08 }}>
-  <span
-    style={{
-      display: "block",
-      
-      fontWeight: 800,
-      letterSpacing: "-0.03em",
-      color: "#0a0a0a",
-    }}
-    className="text-[26px]  lg:text-[40px]"
-  >
-    We&rsquo;ve got a plan
-  </span>
+          <h2 style={{ margin: 0, lineHeight: 1.08 }}>
+            <span
+              style={{
+                display: "block",
 
-  <span
-    className="block text-[26px]  lg:text-[40px] font-extrabold tracking-[-0.03em] text-[#0a0a0a]"
-  >
-    that&rsquo;s perfect for you
-  </span>
-</h2>
+                fontWeight: 800,
+                letterSpacing: "-0.03em",
+                color: "#0a0a0a",
+              }}
+              className="text-[26px]  lg:text-[40px]"
+            >
+              We&rsquo;ve got a plan
+            </span>
+
+            <span
+              className="block text-[26px]  lg:text-[40px] font-extrabold tracking-[-0.03em] text-[#0a0a0a]"
+            >
+              that&rsquo;s perfect for you
+            </span>
+          </h2>
 
         </div>
 
@@ -123,22 +135,19 @@ export function PricingSection() {
         <div className="flex items-center gap-1 mb-8 border border-slate-200 rounded-lg p-1 w-fit">
           <button
             onClick={() => setAnnual(false)}
-            className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all ${
-              !annual ? "bg-slate-900 text-white" : "text-slate-500 hover:text-slate-800"
-            }`}
+            className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all ${!annual ? "bg-slate-900 text-white" : "text-slate-500 hover:text-slate-800"
+              }`}
           >
             Monthly billing
           </button>
           <button
             onClick={() => setAnnual(true)}
-            className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all flex items-center gap-2 ${
-              annual ? "bg-slate-900 text-white" : "text-slate-500 hover:text-slate-800"
-            }`}
+            className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all flex items-center gap-2 ${annual ? "bg-slate-900 text-white" : "text-slate-500 hover:text-slate-800"
+              }`}
           >
             Annual billing
-            <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded-full ${
-              annual ? "bg-white/20 text-white" : "bg-green-100 text-green-700"
-            }`}>
+            <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded-full ${annual ? "bg-white/20 text-white" : "bg-green-100 text-green-700"
+              }`}>
               Save 30%
             </span>
           </button>
@@ -185,7 +194,7 @@ export function PricingSection() {
               {/* Features */}
               <div>
                 <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Features</p>
-                <p className="text-xs text-slate-500 mb-3">{plan.intro}</p>
+                {/* <p className="text-xs text-slate-500 mb-3">{plan.intro}</p> */}
                 <ul className="space-y-2.5">
                   {plan.features.map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-slate-600">
@@ -210,7 +219,7 @@ export function PricingSection() {
             <p className="text-xs text-slate-400 mb-3">pricing</p>
 
             <p className="text-sm text-slate-500 leading-relaxed mb-5">
-              For institutions & large teams 
+              For institutions & large teams
             </p>
 
             <button
@@ -222,24 +231,13 @@ export function PricingSection() {
 
             <div>
               <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Features</p>
-              <p className="text-xs text-slate-500 mb-3">Everything in Pro plus…</p>
+              {/* <p className="text-xs text-slate-500 mb-3">Everything in Pro plus…</p> */}
               <ul className="space-y-2.5">
-             {[
-  "Custom storage",
-  "Multiple Instructors",
-  "Leaderboard",
-  "Brand Color Customization",
-  "Community",
-  "Automated Surveys",
-  "Certificate Customization",
-  "Prebook Option",
-  "Split Payment",
-  "Drip Learning",
-  "Cohort Scheduling",
-  "Duplicate Programs & Reuse",
-  "Custom Integrations",
-  "Dedicated Account Manager",
-  "Priority Support",
+                {[
+                  "Custom Pricing",
+                  "Custom Features",
+                  "Dedicated Support",
+
 
                 ].map((f) => (
                   <li key={f} className="flex items-start gap-2.5 text-sm text-slate-600">
@@ -254,21 +252,33 @@ export function PricingSection() {
         </div>
 
         {/* Logo trust strip */}
-        <div className="mt-14 md:pt-10 border-t border-slate-100">
-  <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-12">
-    {logos.map((logo) => (
-      <Image
-        key={logo.alt}
-        src={logo.src}
-        alt={logo.alt}
-        width={140}
-        height={50}
-        className=" h-10 md:h-auto w-auto object-contain opacity-70 transition-all duration-300 hover:opacity-100"
-      />
-    ))}
-  </div>
-</div>
 
+
+      </div>
+      <div className="mt-14 md:pt-10 container mx-auto max-w-6xl p-4 border-t border-slate-100 px-4">
+        <div className="flex flex-col  gap-6">
+          <div className=" flex items-center mt-4 shrink-0 md:mb-4">
+            <p className="text-sm md:text-2xl text-center lg:text-left   md:font-semibold whitespace-nowrap">
+              Trusted By
+            </p>
+           
+ 
+
+          </div>
+
+          <div className="flex flex-wrap items-center lg:justify-between justify-center w-full gap-8 lg:gap-12">
+            {logos.map((logo) => (
+              <Image
+                key={logo.alt}
+                src={logo.src}
+                alt={logo.alt}
+                width={140}
+                height={50}
+                className="h-10 md:h-16 w-auto object-contain opacity-70 transition-all duration-300 hover:opacity-100"
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

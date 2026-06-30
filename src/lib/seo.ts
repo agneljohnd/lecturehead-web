@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SITE_URL, absoluteUrl, INDEXING_ENABLED } from "./urls";
 
 const SITE_NAME = "LectureHead";
-const DEFAULT_TITLE = "Online Course Platform for Creators — LectureHead";
+const DEFAULT_TITLE = "LectureHead — Online Course Platform for Creators  ";
 const DEFAULT_DESCRIPTION =
   "The all-in-one online course platform for creators, coaches & educators. Sell courses, run live cohorts & community, and keep 100% of your revenue — 0% commission.";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/images/usable-images/OG%20Image.png`;
